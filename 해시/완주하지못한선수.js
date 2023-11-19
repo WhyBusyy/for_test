@@ -17,7 +17,5 @@ function solution(participant, completion) {
             return participant[i];
         }
     }
-
-    // 위 반복문에서 반환되지 않으면 마지막 참가자가 완주하지 못한 것
-    return participant[participant.length - 1];
+    return;
 }
