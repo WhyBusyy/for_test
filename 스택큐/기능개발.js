@@ -28,19 +28,23 @@
 // 따라서 5일째에 1개의 기능, 10일째에 3개의 기능, 20일째에 2개의 기능이 배포됩니다.
 
 function solution(progresses, speeds) {
-    let leftProgresses = [];
-    let leftDays = [];
-    let results = [];
-    progresses.forEach(element => {
-        leftProgresses.push(100 - element);
-    });
-    for(let i = 0; i < leftProgresses.length; i++) {
-        leftDays.push(Math.ceil(leftProgresses[i] / speeds[i]));
+    let leftDays = [];  
+    for(let i = 0; i < progresses.length; i++) {
+        leftDays.push(Math.ceil((100 - progresses[i]) / speeds[i]));
     }
 
-    // 기능배포 배열 작성
-    for(let i = 0; i < leftDays.length; i++) {
-        if(leftDays)
+    let distribution = 1;
+    let answer = []
+    let prework = leftDays[0];
+    for (let i = 1 ; i < leftDays.length; i++) {
+        if (prework >= leftDays[i]) {
+            distribution += 1;
+        } else {
+            answer.push(distribution);
+            distribution = 1;
+            prework = leftDays[i];
+        }
     }
-    return result;
+    answer.push(distribution);
+    return answer;
 }
