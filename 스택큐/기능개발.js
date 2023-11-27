@@ -28,6 +28,19 @@
 // 따라서 5일째에 1개의 기능, 10일째에 3개의 기능, 20일째에 2개의 기능이 배포됩니다.
 
 function solution(progresses, speeds) {
-    var answer = [];
-    return answer;
+    let leftProgresses = [];
+    let leftDays = [];
+    let results = [];
+    progresses.forEach(element => {
+        leftProgresses.push(100 - element);
+    });
+    for(let i = 0; i < leftProgresses.length; i++) {
+        leftDays.push(Math.ceil(leftProgresses[i] / speeds[i]));
+    }
+
+    // 기능배포 배열 작성
+    for(let i = 0; i < leftDays.length; i++) {
+        if(leftDays)
+    }
+    return result;
 }
