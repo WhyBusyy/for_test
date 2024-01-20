@@ -32,13 +32,13 @@ function solution(n) {
 
 function solution(n) {
   return Array(n)
-    .fill()
-    .map((_, i) => i + 1)
+    .fill()               // 길이가 n인 배열을 생성
+    .map((_, i) => i + 1) // 1부터 n까지의 숫자를 갖는 배열
     .filter((i) => {
       let cnt = 0;
       for (let j = 1; j <= i; j++) {
         if (i % j === 0) cnt++;
-      }
-      return cnt >= 3;
-    }).length;
+      }                                //1부터 자기 자신까지의 모든 수로 나누어보며 약수를 찾는 방식
+      return cnt >= 3;                // 약수의 개수가 세 개 이상이면 남김
+    }).length;                        // 남은 수의 개수
 }
