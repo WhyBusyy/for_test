@@ -27,18 +27,23 @@
 // 첫 번째 전화번호, “12”가 두 번째 전화번호 “123”의 접두사입니다. 따라서 답은 false입니다.
 
 function solution(phone_book) {
-    // 전화번호를 정렬하여 앞뒤로 비교하기 위해 정렬
-    phone_book.sort();
+  // 전화번호를 정렬하여 앞뒤로 비교하기 위해 정렬
+  phone_book.sort();
 
-    for (let i = 0; i < phone_book.length - 1; i++) {
-        const currentNum = phone_book[i];
-        const nextNum = phone_book[i + 1];
+  for (let i = 0; i < phone_book.length - 1; i++) {
+    const currentNum = phone_book[i];
+    const nextNum = phone_book[i + 1];
 
-        // 현재 전화번호가 다음 전화번호의 접두어인지 확인
-        if (nextNum.startsWith(currentNum)) {
-            return false; // 접두어인 경우 false 반환
-        }
+    // 현재 전화번호가 다음 전화번호의 접두어인지 확인
+    if (nextNum.startsWith(currentNum)) {
+      return false; // 접두어인 경우 false 반환
     }
+  }
 
-    return true; // 모든 경우에서 접두어가 없으면 true 반환
+  return true; // 모든 경우에서 접두어가 없으면 true 반환
+}
+
+//불필요한 반복을 줄이기 위해 sort메서드, some메서드
+function solution(phoneBook) {
+  return !phoneBook.sort().some((e, i, arr) => e.startsWith(arr[i - 1]));
 }
