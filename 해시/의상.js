@@ -38,3 +38,18 @@
 // 1. crow_mask
 // 2. blue_sunglasses
 // 3. smoky_makeup
+
+function solution(clothes) {
+  let answer = 1;
+  //map객체를 통해 의상타입별로 개수를 파악
+  const closet = new Map();
+  for (let i = 0; i < clothes.length; i++) {
+    const [_, type] = clothes[i];
+    if (!closet.has(type)) closet.set(type, 1);
+    else closet.set(type, closet.get(type) + 1);
+  }
+  //의상타입+1(미착용)으로 경우의 수를 구한 후,
+  for (let count of closet.values()) answer *= count + 1;
+  //아무것도 입지 않은 경우를 제외
+  return answer - 1;
+}
