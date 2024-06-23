@@ -26,6 +26,7 @@
 // 입출력 예 #2
 // 모든 부서의 물품을 구매해주면 10원이 됩니다. 따라서 최대 4개 부서의 물품을 구매해 줄 수 있습니다.
 
+//reduce
 function solution(d, budget) {
   const res = d
     .sort((a, b) => a - b)
@@ -42,6 +43,7 @@ function solution(d, budget) {
   return res.count;
 }
 
+// for
 function solution(d, budget) {
   d.sort((a, b) => a - b);
 
