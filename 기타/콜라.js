@@ -42,3 +42,6 @@ function solution(a, b, n) {
   }
   return answer;
 }
+
+// 다른 사람 풀이
+solution = (a, b, n) => Math.floor(Math.max(n - b, 0) / (a - b)) * b;
